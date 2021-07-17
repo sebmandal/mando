@@ -6,8 +6,8 @@ export default async (client: any, message: any, args: any) => {
 		method: "GET",
 		url: "https://covid-193.p.rapidapi.com/statistics",
 		headers: {
-			"x-rapidapi-key": process.env.COVID19_API_KEY,
-			"x-rapidapi-host": process.env.COVID19_API_HOST,
+			"x-rapidapi-key": process.env.RAPIDAPI_KEY,
+			"x-rapidapi-host": "covid-193.p.rapidapi.com",
 			useQueryString: true,
 		},
 	};
@@ -23,14 +23,17 @@ export default async (client: any, message: any, args: any) => {
 			let fields = [
 				{ name: "Country", value: data.country, inline: false },
 				{ name: "Total Cases", value: data.cases.total, inline: true },
-				{ name: "New Cases", value: data.cases.new, inline: true },
 				{ name: "Active Cases", value: data.cases.active, inline: true },
+				{ name: "New Today", value: data.cases.new, inline: true },
 				{ name: "Recovered", value: data.cases.recovered, inline: false },
 				{ name: "Deaths", value: data.deaths.total, inline: false },
 				{ name: "Tests executed", value: data.tests.total, inline: false },
 			];
-			let footer = `https://covid-193.p.rapidapi.com/statistics?country=${args[1]}`;
-			return message.channel.send(newEmbed(message, title, fields));
+			let url = `https://covid-193.p.rapidapi.com/statistics?country=${args[1]}`;
+			let footer = `Last updated ${data.day}`;
+			return message.channel.send(
+				newEmbed(message, title, fields, footer, url)
+			);
 		}
 	});
 };
