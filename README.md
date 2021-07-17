@@ -16,6 +16,6 @@ npm start
 #### Add a .env with the following information
 - prefix
 - token
-As well as these, grab your key and host from https://rapidapi.com/api-sports/api/covid-193/
+#### As well as these, grab your key and host from https://rapidapi.com/api-sports/api/covid-193/
 - COVID19_API_KEY
 - COVID19_API_HOST
