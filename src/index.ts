@@ -1,26 +1,33 @@
-// Discord.js v12.5.3
-// Mando: A multifunctional Discord bot
-// Language: Typescript
+//     /------------------------------------\
+//     | https://github.com/sebmandal/mando |
+//     |       Mando the Discord bot        |
+//     |         author: sebmandal          |
+//     |            version 2.0             |
+//     |                                    |
+//     |              PACKAGES              |
+//     |       Node.js      v12.19.0        |
+//     |       Typescript   v0.2.2          |
+//     |       Discord.js   v12.5.3         |
+//     |                                    |
+//     \------------------------------------/
+
+import discord from "discord.js";
+const client = new discord.Client();
+
 import dotenv from "dotenv";
-import Discord from "discord.js";
-import { execute } from "./commands";
-const client: any = new Discord.Client();
 dotenv.config();
 
+import commandHandler from "./core/commandHandler";
+
+const prefix = process.env.prefix || "!";
+
 client.on("ready", () => {
-	console.log("Logged in as %s!", client.user.username);
+	console.log("Mando is ready!");
 });
 
-client.on("message", async (message: any) => {
-	if (message.author.bot) return;
-	if (message.channel.type === "dm") return;
-	if (!message.content.startsWith(process.env.prefix)) return;
-
-	let args: string[] = message.content
-		.slice(process.env.prefix?.length || 0)
-		.split(" ");
-
-	await execute(client, message, args);
+client.on("message", async (message: discord.Message) => {
+	if (!message.content.startsWith(prefix)) return;
+	return commandHandler(client, message);
 });
 
 client.login(process.env.token);
