@@ -1,4 +1,4 @@
-import { getCommandNames, commandHelp, doesCommandExist } from "./commands";
+import { getCommandNames, findCommand } from "../commands";
 import newEmbed from "../embed";
 import Discord from "discord.js";
 import dotenv from "dotenv";
@@ -9,15 +9,17 @@ function CFL(string: string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export const run = async (client: any, message: any, args: string[]) => {
-	let command: any = args.length > 1 ? await doesCommandExist(args[1]) : false;
+const usage = `${process.env.prefix}help (command optional)`;
+
+const info = `The help command displays all commands or helpful information about individual commands.`;
+
+const run = async (client: any, message: any, args: string[]) => {
+	const command = await findCommand(args[1]);
 
 	let title: string;
 	let fields: Discord.EmbedFieldData[];
 
 	if (command) {
-		command = await commandHelp(args[1]);
-
 		title = `${CFL(args[1])}`;
 		fields = [
 			{
@@ -39,11 +41,15 @@ export const run = async (client: any, message: any, args: string[]) => {
 				value: `${await getCommandNames().join(", \n")}`,
 				inline: false,
 			},
+			{
+				name: "Mando's source code",
+				value: "https://github.com/sebmandal/Mando",
+				inline: false,
+			},
 		];
 	}
 
 	return message.channel.send(newEmbed(message, title, fields));
 };
 
-export const usage = `${process.env.prefix}help (command optional)`;
-export const info = `The help command displays all commands or helpful information about individual commands.`;
+export { run, info, usage };

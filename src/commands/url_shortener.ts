@@ -3,7 +3,11 @@ import newEmbed from "../embed";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const run = async (client: any, message: any, args: string[]) => {
+const info = `The short command shortens a URL for you.`;
+
+const usage = `${process.env.prefix}short https://example.com/`;
+
+const run = async (client: any, message: any, args: string[]) => {
 	const options = {
 		method: "POST",
 		url: "https://url-shortener-service.p.rapidapi.com/shorten",
@@ -19,17 +23,37 @@ export const run = async (client: any, message: any, args: string[]) => {
 	options.form.url = args[1];
 
 	request(options, (err, res, body) => {
-		let data: any = JSON.parse(body);
+		if (err) throw err;
 
-		if (err || !data) {
-			return message.channel.send(`:x: Something went wrong.`);
+		let data: any = JSON.parse(body);
+		let thumbnailUrl = "https://i.ibb.co/Dpwjvy9/short.png";
+
+		if (!data.result_url) {
+			let title = "That's not a valid URL.";
+			let fields = [
+				{
+					name: ":x: Invalid URL provided :x:",
+					value: "Invalid URL provided.",
+					inline: false,
+				},
+			];
+			return message.channel.send(
+				newEmbed(
+					message,
+					title,
+					fields,
+					undefined,
+					undefined,
+					undefined,
+					thumbnailUrl
+				)
+			);
 		} else {
 			let title = `Mando's URL shortener`;
 			let fields = [
 				{ name: "Your shortened link", value: data.result_url, inline: false },
 				{ name: "Original link", value: args[1], inline: false },
 			];
-			let thumbnailUrl = "https://i.ibb.co/Dpwjvy9/short.png";
 			return message.channel.send(
 				newEmbed(
 					message,
@@ -45,5 +69,4 @@ export const run = async (client: any, message: any, args: string[]) => {
 	});
 };
 
-export const usage = `${process.env.prefix}short https://example.com/`;
-export const info = `The short command shortens a URL for you.`;
+export { run, info, usage };

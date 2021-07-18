@@ -3,7 +3,7 @@
 // Language: Typescript
 import dotenv from "dotenv";
 import Discord from "discord.js";
-import { execute } from "./commands/commands";
+import { execute } from "./commands";
 const client: any = new Discord.Client();
 dotenv.config();
 

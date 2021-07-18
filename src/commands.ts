@@ -1,12 +1,16 @@
 // command imports
-import * as covid from "./virus_data";
-import * as short from "./url_shortener";
-import * as help from "./help";
+import * as covid from "./commands/virus_data";
+import * as short from "./commands/url_shortener";
+import * as play from "./commands/voice/play";
+import * as stop from "./commands/voice/stop";
+import * as help from "./commands/help";
 
 // a registry of the commands
 export const commands = [
 	{ name: "covid", run: covid.run, usage: covid.usage, info: covid.info },
 	{ name: "short", run: short.run, usage: short.usage, info: short.info },
+	{ name: "play", run: play.run, usage: play.usage, info: play.info },
+	{ name: "stop", run: stop.run, usage: stop.usage, info: stop.info },
 	{ name: "help", run: help.run, usage: help.usage, info: help.info },
 ];
 
@@ -23,20 +27,6 @@ export const execute = async (client: any, message: any, args: string[]) => {
 	});
 };
 
-export const commandHelp = async (c: string) => {
-	for (let i = 0; i < commands.length; i++) {
-		if (commands[i].name === c) {
-			return commands[i];
-		}
-	}
-};
-
-export const doesCommandExist = async (c: string) => {
-	for (let i = 0; i < commands.length; i++) {
-		if (commands[i].name === c) {
-			return true;
-		}
-	}
-
-	return false;
+export const findCommand = async (s: string) => {
+	return commands.find((c) => c.name === s) || false;
 };
