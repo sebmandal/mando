@@ -1,7 +1,9 @@
 import request from "request";
 import newEmbed from "../embed";
+import dotenv from "dotenv";
+dotenv.config();
 
-export default async (client: any, message: any, args: any) => {
+export const run = async (client: any, message: any, args: string[]) => {
 	const options = {
 		method: "GET",
 		url: "https://covid-193.p.rapidapi.com/statistics",
@@ -16,9 +18,9 @@ export default async (client: any, message: any, args: any) => {
 	request(options, (err, res, body) => {
 		let data: any = JSON.parse(body).response[0];
 
-		if (err || !data) {
-			return message.channel.send(`:x: Something went wrong.`);
-		} else {
+		if (err) return message.channel.send(`:x: Something went wrong.`);
+		if (!data) return message.channel.send(`:x: Invalid country.`);
+		if (data) {
 			let title = `COVID 19 info for ${args[1]}`;
 			let fields = [
 				{ name: "Country", value: data.country, inline: false },
@@ -37,3 +39,6 @@ export default async (client: any, message: any, args: any) => {
 		}
 	});
 };
+
+export const usage = `${process.env.prefix}covid canada`;
+export const info = `The covid command displays information about the COVID-19 pandemic.`;

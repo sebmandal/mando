@@ -4,7 +4,7 @@ export default (
 	message: any,
 	title: string,
 	fields: Discord.EmbedFieldData[],
-	footer?: string,
+	footer?: string | object,
 	url?: string,
 	imageUrl?: string,
 	thumbnailUrl?: string
@@ -20,5 +20,5 @@ export default (
 		.setImage(imageUrl || "")
 		.addFields(fields)
 		.setColor("#E97451")
-		.setFooter(footer || "Powered by Mando");
+		.setFooter(footer || "Powered by Mando under MNDL® Ltd.");
 };

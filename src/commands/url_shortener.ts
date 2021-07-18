@@ -1,7 +1,9 @@
 import request from "request";
 import newEmbed from "../embed";
+import dotenv from "dotenv";
+dotenv.config();
 
-export default async (client: any, message: any, args: any) => {
+export const run = async (client: any, message: any, args: string[]) => {
 	const options = {
 		method: "POST",
 		url: "https://url-shortener-service.p.rapidapi.com/shorten",
@@ -18,7 +20,6 @@ export default async (client: any, message: any, args: any) => {
 
 	request(options, (err, res, body) => {
 		let data: any = JSON.parse(body);
-		console.log(data);
 
 		if (err || !data) {
 			return message.channel.send(`:x: Something went wrong.`);
@@ -28,7 +29,21 @@ export default async (client: any, message: any, args: any) => {
 				{ name: "Your shortened link", value: data.result_url, inline: false },
 				{ name: "Original link", value: args[1], inline: false },
 			];
-			return message.channel.send(newEmbed(message, title, fields));
+			let thumbnailUrl = "https://i.ibb.co/Dpwjvy9/short.png";
+			return message.channel.send(
+				newEmbed(
+					message,
+					title,
+					fields,
+					undefined,
+					data.result_url,
+					undefined,
+					thumbnailUrl
+				)
+			);
 		}
 	});
 };
+
+export const usage = `${process.env.prefix}short https://example.com/`;
+export const info = `The short command shortens a URL for you.`;

@@ -3,7 +3,7 @@
 // Language: Typescript
 import dotenv from "dotenv";
 import Discord from "discord.js";
-import tryCommand from "./commands/commands";
+import { execute } from "./commands/commands";
 const client: any = new Discord.Client();
 dotenv.config();
 
@@ -20,7 +20,7 @@ client.on("message", async (message: any) => {
 		.slice(process.env.prefix?.length || 0)
 		.split(" ");
 
-	await tryCommand(client, message, args);
+	await execute(client, message, args);
 });
 
 client.login(process.env.token);
