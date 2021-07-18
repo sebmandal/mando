@@ -5,8 +5,11 @@ import * as play from "./commands/voice/play";
 import * as stop from "./commands/voice/stop";
 import * as help from "./commands/help";
 
+// Classes and interfaces
+import { Command } from "./types/command";
+
 // a registry of the commands
-export const commands = [
+export const commands: Command[] = [
 	{ name: "covid", run: covid.run, usage: covid.usage, info: covid.info },
 	{ name: "short", run: short.run, usage: short.usage, info: short.info },
 	{ name: "play", run: play.run, usage: play.usage, info: play.info },

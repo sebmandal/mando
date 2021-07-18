@@ -14,15 +14,15 @@ const run = async (client: any, message: any, args: string[]) => {
 		);
 	const permissions = voiceChannel.permissionsFor(message.client.user);
 	if (!permissions.has("CONNECT"))
-		return message.channel.send("You dont have the correct permissins");
+		return message.channel.send("You dont have the correct permissions");
 	if (!permissions.has("SPEAK"))
-		return message.channel.send("You dont have the correct permissins");
+		return message.channel.send("You dont have the correct permissions");
 	if (!args.length)
 		return message.channel.send("You need to send the second argument!");
 
 	const validURL = (str: string) => {
 		var regex =
-			/(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+			/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm;
 		if (!regex.test(str)) {
 			return false;
 		} else {
