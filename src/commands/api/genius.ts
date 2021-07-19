@@ -53,7 +53,7 @@ const GeniusCommand: Command = {
 
 			let title = `Top ${fields.length} hits for **${options.qs.q}**`;
 
-			return message.channel.send(w
+			return message.channel.send(
 				embed({ message: message, title: title, fields: fields })
 			);
 		});
