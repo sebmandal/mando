@@ -1,6 +1,6 @@
 import ytdl from "ytdl-core";
 import ytSearch from "yt-search";
-import Command from "../../core/commandType";
+import { Command } from "../../core/customTypes";
 
 const PlayVoiceCommand: Command = {
 	name: "play",

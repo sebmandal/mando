@@ -1,4 +1,4 @@
-import Command from "../../core/commandType";
+import { Command } from "../../core/customTypes";
 
 const EvalCommand: Command = {
 	name: "eval",

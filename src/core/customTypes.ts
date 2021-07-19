@@ -1,6 +1,6 @@
 import Discord from "discord.js";
 
-export default interface Command {
+export interface Command {
 	name: string;
 	description: string;
 	usage: string;

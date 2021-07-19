@@ -1,6 +1,6 @@
 import request from "request";
 import newEmbed from "../../core/customEmbed";
-import Command from "../../core/commandType";
+import { Command } from "../../core/customTypes";
 
 const CovidCommand: Command = {
 	name: "covid",

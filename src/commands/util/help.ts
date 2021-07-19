@@ -1,5 +1,5 @@
 import newEmbed from "../../core/customEmbed";
-import Command from "../../core/commandType";
+import { Command } from "../../core/customTypes";
 import commands from "../../core/commandRegistry";
 
 const HelpCommand: Command = {

@@ -11,18 +11,18 @@
 //     |                                    |
 //     \------------------------------------/
 
+import commandHandler from "./core/commandHandler";
+
 import discord from "discord.js";
 const client = new discord.Client();
 
 import dotenv from "dotenv";
 dotenv.config();
 
-import commandHandler from "./core/commandHandler";
-
 const prefix = process.env.prefix || "!";
 
 client.on("ready", () => {
-	console.log("Mando is ready!");
+	return console.log("Mando is ready!");
 });
 
 client.on("message", async (message: discord.Message) => {
