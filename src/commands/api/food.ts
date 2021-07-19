@@ -56,4 +56,4 @@ const CovidCommand: Command = {
 	},
 };
 
-export default CovidCommand;
+export default FoodCommand;
