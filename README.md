@@ -17,6 +17,7 @@ npm start
 ```
 
 #### Add a .env with the following information
+
 ###### Grab your COVID19 API key and host from https://rapidapi.com/api-sports/api/covid-193/
 
 - Bot prefix (variable name: prefix)
@@ -24,6 +25,6 @@ npm start
 - COVID19_API_KEY
 - COVID19_API_HOST
 
-### Contributors
+### Developers
 
 - [sebmandal](https://github.com/sebmandal)
