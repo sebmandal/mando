@@ -26,4 +26,4 @@ const HelpCommand: Command = {
 	},
 };
 
-export default HelpCommand;
+export default SourceCommand;
