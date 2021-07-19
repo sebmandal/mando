@@ -5,8 +5,7 @@ import { Command } from "../../core/customTypes";
 const PlayVoiceCommand: Command = {
 	name: "play",
 	description: "Play music on the music player, be in a VC for this tho.",
-	usage:
-		process.env.prefix + "play https://www.youtube.com/watch?v=gfHbg53ykPY",
+	usage: "play https://www.youtube.com/watch?v=gfHbg53ykPY",
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const voiceChannel = message.member.voice.channel;
 

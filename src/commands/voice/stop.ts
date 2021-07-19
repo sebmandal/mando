@@ -3,7 +3,7 @@ import { Command } from "../../core/customTypes";
 const StopVoiceCommand: Command = {
 	name: "stop",
 	description: "Stop the current track and make Mando leave the VC.",
-	usage: process.env.prefix + "stop",
+	usage: "stop",
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const voiceChannel = message.member.voice.channel;
 

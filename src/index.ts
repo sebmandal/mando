@@ -13,8 +13,8 @@
 
 import commandHandler from "./core/commandHandler";
 
-import discord from "discord.js";
-const client = new discord.Client();
+import Discord from "discord.js";
+const client = new Discord.Client();
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -25,7 +25,7 @@ client.on("ready", () => {
 	return console.log("Mando is ready!");
 });
 
-client.on("message", async (message: discord.Message) => {
+client.on("message", async (message: Discord.Message) => {
 	if (!message.content.startsWith(prefix)) return;
 	return commandHandler(client, message);
 });

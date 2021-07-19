@@ -5,7 +5,7 @@ import { Command } from "../../core/customTypes";
 const CovidCommand: Command = {
 	name: "covid",
 	description: "Retrieve info about the COVID-19 pandemic.",
-	usage: process.env.prefix + "covid canada",
+	usage: "covid canada",
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const options = {
 			method: "GET",

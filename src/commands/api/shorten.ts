@@ -5,7 +5,7 @@ import { Command } from "../../core/customTypes";
 const ShortenCommand: Command = {
 	name: "shorten",
 	description: "Shorten a URL Link.",
-	usage: process.env.prefix + "short https://google.com/",
+	usage: "short https://google.com/",
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const options = {
 			method: "POST",

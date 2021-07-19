@@ -6,7 +6,7 @@ const HelpCommand: Command = {
 	name: "help",
 	description:
 		"The help command, also what you are seeing on screen right now!",
-	usage: process.env.prefix + "help (covid)",
+	usage: "help covid (second argument optional)",
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const command = commands.find((command) => command.name === args[1]);
 		if (command) {
@@ -19,7 +19,7 @@ const HelpCommand: Command = {
 				},
 				{
 					name: `Example usage`,
-					value: "`" + command.usage + "`",
+					value: `${process.env.prefix}${command.usage}`,
 					inline: false,
 				},
 			];
