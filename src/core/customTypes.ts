@@ -12,7 +12,7 @@ export interface Command {
 	) => any;
 }
 
-export interface Embed extends Object {
+export interface Embed {
 	message: any;
 	title: string;
 	description?: string;

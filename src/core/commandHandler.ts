@@ -1,5 +1,5 @@
 import Discord from "discord.js";
-import commands from "./commandRegistry";
+import { allCommands as commands } from "./commandRegistry";
 
 export default async (client: Discord.Client, message: Discord.Message) => {
 	const args = message.content.slice(process.env.prefix?.length).split(" ");
