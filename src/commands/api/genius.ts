@@ -37,11 +37,13 @@ const CovidCommand: Command = {
 
 			let title = `Top 5 hits for **${options.qs.q}**`;
 
-			const results = JSON.parse(body)
-				.response.hits.slice(5, body.response.hits.length)
+			const data = JSON.parse(body);
+
+			const results = data.response.hits
+				.slice(5, data.response.hits.length)
 				.map((hit: any) => {
 					return {
-						title: hit.result.title,
+						title: hit.result.full_title,
 						url: hit.result.url,
 						description: hit.result.primary_artist.name,
 					};
