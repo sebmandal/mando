@@ -12,7 +12,7 @@ const CovidCommand: Command = {
 			url: "https://nutritionix-api.p.rapidapi.com/v1_1/search/",
 			qs: { fields: "item_name,item_id,brand_name,nf_calories,nf_total_fat" },
 			headers: {
-				"x-rapidapi-key": "cc2d026321msh4679e2d0af51840p1778dcjsne9b83ff2a6b2",
+				"x-rapidapi-key": process.env.RAPIDAPI_KEY,
 				"x-rapidapi-host": "nutritionix-api.p.rapidapi.com",
 				useQueryString: true,
 			},

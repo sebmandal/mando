@@ -34,11 +34,7 @@ const CovidCommand: Command = {
 
 		return request(options, (err: any, res: any, body: any) => {
 			if (err) throw err;
-
-			let title = `Top 5 hits for **${options.qs.q}**`;
-
 			const data = JSON.parse(body);
-
 			const results = data.response.hits
 				.slice(5, data.response.hits.length)
 				.map((hit: any) => {
@@ -58,6 +54,8 @@ const CovidCommand: Command = {
 					inline: false,
 				});
 			});
+
+			let title = `Top ${fields.length} hits for **${options.qs.q}**`;
 
 			return message.channel.send(newEmbed(message, title, fields));
 		});
