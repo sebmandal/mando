@@ -2,7 +2,7 @@ import newEmbed from "../../core/customEmbed";
 import { Command } from "../../core/customTypes";
 import commands from "../../core/commandRegistry";
 
-const HelpCommand: Command = {
+const SourceCommand: Command = {
 	name: "source",
 	description: "Sends back the source code link",
 	usage: "source",
@@ -26,4 +26,4 @@ const HelpCommand: Command = {
 	},
 };
 
-export default HelpCommand;
+export default SourceCommand;

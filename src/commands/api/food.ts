@@ -2,7 +2,7 @@ import request from "request";
 import newEmbed from "../../core/customEmbed";
 import { Command } from "../../core/customTypes";
 
-const CovidCommand: Command = {
+const FoodCommand: Command = {
 	name: "food",
 	description: "Retrieve info about foods, beverages, etc.",
 	usage: "food cheddar cheese",
@@ -56,4 +56,4 @@ const CovidCommand: Command = {
 	},
 };
 
-export default CovidCommand;
+export default FoodCommand;
