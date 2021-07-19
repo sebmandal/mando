@@ -9,12 +9,14 @@ const HelpCommand: Command = {
 	usage: "help covid (second argument optional)",
 	alias: [],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
-		const command = allCommands.find((command) => command.name === args[0]);
+		const command = allCommands.find(
+			(command) => command.name === args[0] || command.alias.includes(args[0])
+		);
 		if (command) {
-			let title = `${args[0]}`;
+			let title = `${process.env.prefix}${args[0]}`;
 			let fields = [
 				{
-					name: `Information about ${args[0]}`,
+					name: `Information about the ${process.env.prefix}${command.name} command`,
 					value: command.description,
 					inline: false,
 				},
