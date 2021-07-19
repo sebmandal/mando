@@ -6,6 +6,7 @@ const CovidCommand: Command = {
 	name: "covid",
 	description: "Retrieve info about the COVID-19 pandemic.",
 	usage: "covid canada",
+	alias: [],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const options = {
 			method: "GET",
@@ -28,7 +29,7 @@ const CovidCommand: Command = {
 			if (!data) {
 				let title = "That's not a valid country.";
 				let description = ":x: Invalid country provided";
-				return message.channel.send(error(message, title, description));
+				return message.channel.send(error({ message, title, description }));
 			} else {
 				let title = `COVID 19 info for ${args[0]}`;
 				let fields = [
@@ -43,16 +44,14 @@ const CovidCommand: Command = {
 				let footer = `Last updated ${data.day}`;
 				let url = `https://covid-193.p.rapidapi.com/statistics?country=${args[0]}`;
 				return message.channel.send(
-					embed(
-						message,
-						title,
-						undefined,
-						fields,
-						footer,
-						url,
-						undefined,
-						thumbnailUrl
-					)
+					embed({
+						message: message,
+						title: title,
+						fields: fields,
+						footer: footer,
+						url: url,
+						thumbnailUrl: thumbnailUrl,
+					})
 				);
 			}
 		});

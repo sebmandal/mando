@@ -6,6 +6,7 @@ const GeniusCommand: Command = {
 	name: "genius",
 	description: "Retrieve info about artists and song on Genius.",
 	usage: "genius Ski Mask the Slump God",
+	alias: [],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const options = {
 			method: "GET",
@@ -22,7 +23,7 @@ const GeniusCommand: Command = {
 			let title = "Provide a search term.";
 			let description = ":x: Provide a search term.";
 
-			return await message.channel.send(error(message, title, description));
+			return await message.channel.send(error({ message, title, description }));
 		}
 
 		options.qs.q = args.join(" ");
@@ -52,7 +53,9 @@ const GeniusCommand: Command = {
 
 			let title = `Top ${fields.length} hits for **${options.qs.q}**`;
 
-			return message.channel.send(embed(message, title, undefined, fields));
+			return message.channel.send(w
+				embed({ message: message, title: title, fields: fields })
+			);
 		});
 	},
 };

@@ -6,6 +6,7 @@ const ShortenCommand: Command = {
 	name: "shorten",
 	description: "Shorten a URL Link.",
 	usage: "shorten https://google.com/",
+	alias: [],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const options = {
 			method: "POST",
@@ -31,7 +32,7 @@ const ShortenCommand: Command = {
 				let title = "That's not a valid URL.";
 				let description = ":x: Invalid URL provided";
 
-				return message.channel.send(error(message, title, description));
+				return message.channel.send(error({ message, title, description }));
 			} else {
 				let title = `Mando's URL shortener`;
 				let fields = [
@@ -43,16 +44,13 @@ const ShortenCommand: Command = {
 					{ name: "Original link", value: args[0], inline: false },
 				];
 				return message.channel.send(
-					embed(
-						message,
-						title,
-						undefined,
+					embed({
+						message: message,
+						title: title,
 						fields,
-						undefined,
-						data.result_url,
-						undefined,
-						thumbnailUrl
-					)
+						url: data.result_url,
+						thumbnailUrl: thumbnailUrl,
+					})
 				);
 			}
 		});

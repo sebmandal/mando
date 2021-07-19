@@ -1,41 +1,33 @@
 import Discord from "discord.js";
+import { Embed, ErrorEmbed } from "./customTypes";
 
-export const embed = (
-	message: any,
-	title: string,
-	description?: string,
-	fields?: Discord.EmbedFieldData[],
-	footer?: string | object,
-	url?: string,
-	imageUrl?: string,
-	thumbnailUrl?: string
-) => {
+export const embed = (data: Embed) => {
 	const embed = new Discord.MessageEmbed()
 		.setAuthor(
-			message.author.tag,
-			`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=512`
+			data.message.author.tag,
+			`https://cdn.discordapp.com/avatars/${data.message.author.id}/${data.message.author.avatar}.webp?size=512`
 		)
-		.setTitle(title)
-		.setThumbnail(thumbnailUrl || "")
-		.setURL(url || "")
-		.setImage(imageUrl || "")
+		.setTitle(data.title)
+		.setThumbnail(data.thumbnailUrl || "")
+		.setURL(data.url || "")
+		.setImage(data.imageUrl || "")
 		.setColor("#E97451")
-		.setFooter(footer || "Powered by Mando under MNDL® Ltd.");
+		.setFooter(data.footer || "Powered by Mando under MNDL® Ltd.");
 
-	fields ? embed.addFields(fields) : {};
-	description ? embed.setDescription(description) : {};
+	data.fields ? embed.addFields(data.fields) : {};
+	data.description ? embed.setDescription(data.description) : {};
 
 	return embed;
 };
 
-export const error = (message: any, title: string, description: string) => {
+export const error = (data: ErrorEmbed) => {
 	return new Discord.MessageEmbed()
 		.setAuthor(
-			message.author.tag,
-			`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=512`
+			data.message.author.tag,
+			`https://cdn.discordapp.com/avatars/${data.message.author.id}/${data.message.author.avatar}.webp?size=512`
 		)
-		.setTitle(title)
-		.setDescription(description)
+		.setTitle(data.title)
+		.setDescription(data.description)
 		.setColor("#E97451")
 		.setFooter("Powered by Mando under MNDL® Ltd.");
 };

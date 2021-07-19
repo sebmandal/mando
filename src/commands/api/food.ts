@@ -6,6 +6,7 @@ const FoodCommand: Command = {
 	name: "food",
 	description: "Retrieve info about foods, beverages, etc.",
 	usage: "food cheddar cheese",
+	alias: [],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const options = {
 			method: "GET",
@@ -24,7 +25,7 @@ const FoodCommand: Command = {
 			let title = "Provide a search term.";
 			let description = ":x: Provide a search term.";
 
-			return await message.channel.send(error(message, title, description));
+			return await message.channel.send(error({ message, title, description }));
 		}
 
 		return request(options, (err: any, res: any, body: any) => {
@@ -46,7 +47,9 @@ const FoodCommand: Command = {
 				},
 			];
 
-			return message.channel.send(embed(message, title, undefined, fields));
+			return message.channel.send(
+				embed({ message: message, title: title, fields: fields })
+			);
 		});
 	},
 };

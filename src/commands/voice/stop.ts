@@ -4,6 +4,7 @@ const StopVoiceCommand: Command = {
 	name: "stop",
 	description: "Stop the current track and make Mando leave the VC.",
 	usage: "stop",
+	alias: [],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const voiceChannel = message.member.voice.channel;
 

@@ -2,6 +2,7 @@ import Discord from "discord.js";
 
 export interface Command {
 	name: string;
+	alias: string[];
 	description: string;
 	usage: string;
 	run: (
@@ -9,5 +10,22 @@ export interface Command {
 		message: Discord.Message,
 		args: string[]
 	) => any;
-	alias?: string[];
+}
+
+export interface Embed extends Object {
+	message: any;
+	title: string;
+	description?: string;
+	fields?: Discord.EmbedFieldData[];
+	footer?: string | object;
+	url?: string;
+	imageUrl?: string;
+	thumbnailUrl?: string;
+}
+
+export interface ErrorEmbed {
+	message: any;
+	title: string;
+	description: string;
+	footer?: string | object;
 }

@@ -7,6 +7,7 @@ const HelpCommand: Command = {
 	description:
 		"The help command, also what you are seeing on screen right now!",
 	usage: "help covid (second argument optional)",
+	alias: [],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const command = commands.find((command) => command.name === args[0]);
 		if (command) {
@@ -22,9 +23,16 @@ const HelpCommand: Command = {
 					value: `${process.env.prefix}${command.usage}`,
 					inline: false,
 				},
+				{
+					name: `Aliases`,
+					value: `${command.alias.join(", ") || "No aliases."}`,
+					inline: false,
+				},
 			];
 
-			await message.channel.send(embed(message, title, undefined, fields));
+			await message.channel.send(
+				embed({ message: message, title: title, fields: fields })
+			);
 		} else {
 			let title = `Mando's abilities`;
 			let fields = [
@@ -40,7 +48,9 @@ const HelpCommand: Command = {
 				},
 			];
 
-			await message.channel.send(embed(message, title, undefined, fields));
+			await message.channel.send(
+				embed({ message: message, title: title, fields: fields })
+			);
 		}
 	},
 };
