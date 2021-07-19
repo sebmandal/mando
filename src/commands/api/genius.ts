@@ -2,7 +2,7 @@ import request from "request";
 import newEmbed from "../../core/customEmbed";
 import { Command } from "../../core/customTypes";
 
-const CovidCommand: Command = {
+const GeniusCommand: Command = {
 	name: "genius",
 	description: "Retrieve info about artists and song on Genius.",
 	usage: "genius Ski Mask the Slump God",
@@ -62,4 +62,4 @@ const CovidCommand: Command = {
 	},
 };
 
-export default CovidCommand;
+export default GeniusCommand;
