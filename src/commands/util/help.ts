@@ -9,10 +9,14 @@ const HelpCommand: Command = {
 	usage: "help covid (second argument optional)",
 	alias: [],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
+		// if the first argument (optional) is equal to any command or alias, the command variable will be said command
 		const command = allCommands.find(
 			(command) => command.name === args[0] || command.alias.includes(args[0])
 		);
+
 		if (command) {
+			// if the script above finds a command, it'll send back the command's information
+
 			let title = `${process.env.prefix}${args[0]}`;
 			let fields = [
 				{
@@ -36,6 +40,10 @@ const HelpCommand: Command = {
 				embed({ message: message, title: title, fields: fields })
 			);
 		} else {
+			// if there is no command found, the script will just send back the vanilla help message
+
+			// commands = [{category info}, {category 2 info}, {category 3 info}];
+			// looping through the commands and appending
 			let categories: object[] = [];
 			commands.forEach((category) => {
 				categories.push(category);
@@ -45,6 +53,8 @@ const HelpCommand: Command = {
 			let description = `To see a detailed help for a specific command, send ${process.env.prefix}help (command)`;
 
 			let fields = [];
+
+			// looping through the categories, creating a field for each one with the containing commands and pushing all of it into the fields variable
 			categories.forEach((category: any) => {
 				fields.push({
 					name: category.name,
@@ -55,12 +65,14 @@ const HelpCommand: Command = {
 				});
 			});
 
+			// pushing the source code field into the fields, I want this one last, so it's pushed instead of being in the fields variable from the beginning
 			fields.push({
 				name: "Mando's source code",
 				value: "https://github.com/sebmandal/Mando",
 				inline: false,
 			});
 
+			// sending the vanilla help message
 			await message.channel.send(
 				embed({
 					message: message,
