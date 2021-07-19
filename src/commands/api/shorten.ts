@@ -19,9 +19,9 @@ const ShortenCommand: Command = {
 			form: { url: "" },
 		};
 
-		options.form.url = args[1];
+		options.form.url = args[0];
 
-		request(options, (err, res, body) => {
+		return request(options, (err, res, body) => {
 			if (err) throw err;
 
 			let data: any = JSON.parse(body);
@@ -55,7 +55,7 @@ const ShortenCommand: Command = {
 						value: data.result_url,
 						inline: false,
 					},
-					{ name: "Original link", value: args[1], inline: false },
+					{ name: "Original link", value: args[0], inline: false },
 				];
 				return message.channel.send(
 					newEmbed(

@@ -8,12 +8,12 @@ const HelpCommand: Command = {
 		"The help command, also what you are seeing on screen right now!",
 	usage: "help covid (second argument optional)",
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
-		const command = commands.find((command) => command.name === args[1]);
+		const command = commands.find((command) => command.name === args[0]);
 		if (command) {
-			let title = `${args[1]}`;
+			let title = `${args[0]}`;
 			let fields = [
 				{
-					name: `Information about ${args[1]}`,
+					name: `Information about ${args[0]}`,
 					value: command.description,
 					inline: false,
 				},

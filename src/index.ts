@@ -14,7 +14,7 @@
 import commandHandler from "./core/commandHandler";
 
 import Discord from "discord.js";
-const client = new Discord.Client();
+const client: Discord.Client = new Discord.Client();
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -22,6 +22,12 @@ dotenv.config();
 const prefix = process.env.prefix || "!";
 
 client.on("ready", () => {
+	client.user!.setActivity(
+		`${prefix}help on ${client.guilds.cache.size} servers!`,
+		{
+			type: "LISTENING",
+		}
+	);
 	return console.log("Mando is ready!");
 });
 

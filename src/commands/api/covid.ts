@@ -17,8 +17,8 @@ const CovidCommand: Command = {
 			},
 		};
 
-		options.url = `https://covid-193.p.rapidapi.com/statistics?country=${args[1]}`;
-		request(options, (err: any, res: any, body: any) => {
+		options.url = `https://covid-193.p.rapidapi.com/statistics?country=${args[0]}`;
+		return request(options, (err: any, res: any, body: any) => {
 			if (err) throw err;
 
 			let data: any = JSON.parse(body).response[0];
@@ -34,7 +34,7 @@ const CovidCommand: Command = {
 						inline: false,
 					},
 				];
-				message.channel.send(
+				return message.channel.send(
 					newEmbed(
 						message,
 						title,
@@ -46,7 +46,7 @@ const CovidCommand: Command = {
 					)
 				);
 			} else {
-				let title = `COVID 19 info for ${args[1]}`;
+				let title = `COVID 19 info for ${args[0]}`;
 				let fields = [
 					{ name: "Country", value: data.country, inline: false },
 					{ name: "Total Cases", value: data.cases.total, inline: true },
@@ -57,7 +57,7 @@ const CovidCommand: Command = {
 					{ name: "Tests executed", value: data.tests.total, inline: false },
 				];
 				let footer = `Last updated ${data.day}`;
-				let url = `https://covid-193.p.rapidapi.com/statistics?country=${args[1]}`;
+				let url = `https://covid-193.p.rapidapi.com/statistics?country=${args[0]}`;
 				return message.channel.send(
 					newEmbed(message, title, fields, footer, url, undefined, thumbnailUrl)
 				);
