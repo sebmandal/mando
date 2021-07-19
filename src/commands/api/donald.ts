@@ -25,6 +25,7 @@ const CovidCommand: Command = {
 			let data = JSON.parse(body);
 
 			let title = "Your randomly generated Trump quote";
+			
 			let fields = [
 				{
 					name: "Donald Trump, " + data.appeared_at.substring(0, 4),
