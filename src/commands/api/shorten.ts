@@ -1,11 +1,11 @@
 import request from "request";
-import newEmbed from "../../core/customEmbed";
+import { embed, error } from "../../core/embed";
 import { Command } from "../../core/customTypes";
 
 const ShortenCommand: Command = {
 	name: "shorten",
 	description: "Shorten a URL Link.",
-	usage: "short https://google.com/",
+	usage: "shorten https://google.com/",
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const options = {
 			method: "POST",
@@ -29,24 +29,9 @@ const ShortenCommand: Command = {
 
 			if (!data.result_url) {
 				let title = "That's not a valid URL.";
-				let fields = [
-					{
-						name: ":x: Invalid URL provided :x:",
-						value: "Invalid URL provided.",
-						inline: false,
-					},
-				];
-				return message.channel.send(
-					newEmbed(
-						message,
-						title,
-						fields,
-						undefined,
-						undefined,
-						undefined,
-						thumbnailUrl
-					)
-				);
+				let description = ":x: Invalid URL provided";
+
+				return message.channel.send(error(message, title, description));
 			} else {
 				let title = `Mando's URL shortener`;
 				let fields = [
@@ -58,9 +43,10 @@ const ShortenCommand: Command = {
 					{ name: "Original link", value: args[0], inline: false },
 				];
 				return message.channel.send(
-					newEmbed(
+					embed(
 						message,
 						title,
+						undefined,
 						fields,
 						undefined,
 						data.result_url,

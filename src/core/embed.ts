@@ -1,10 +1,10 @@
 import Discord from "discord.js";
 
-export default (
+export const embed = (
 	message: any,
 	title: string,
+	description?: string,
 	fields?: Discord.EmbedFieldData[],
-	description?: Discord.EmbedFieldData[],
 	footer?: string | object,
 	url?: string,
 	imageUrl?: string,
@@ -26,4 +26,16 @@ export default (
 	description ? embed.setDescription(description) : {};
 
 	return embed;
+};
+
+export const error = (message: any, title: string, description: string) => {
+	return new Discord.MessageEmbed()
+		.setAuthor(
+			message.author.tag,
+			`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=512`
+		)
+		.setTitle(title)
+		.setDescription(description)
+		.setColor("#E97451")
+		.setFooter("Powered by Mando under MNDL® Ltd.");
 };

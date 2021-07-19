@@ -1,5 +1,5 @@
 import request from "request";
-import newEmbed from "../../core/customEmbed";
+import { embed, error } from "../../core/embed";
 import { Command } from "../../core/customTypes";
 
 const GeniusCommand: Command = {
@@ -20,14 +20,9 @@ const GeniusCommand: Command = {
 
 		if (args.length <= 0) {
 			let title = "Provide a search term.";
-			let fields = [
-				{
-					name: ":x: Provide a search term.",
-					value: "Please provide a search term.",
-				},
-			];
+			let description = ":x: Provide a search term.";
 
-			return await message.channel.send(newEmbed(message, title, fields));
+			return await message.channel.send(error(message, title, description));
 		}
 
 		options.qs.q = args.join(" ");
@@ -57,7 +52,7 @@ const GeniusCommand: Command = {
 
 			let title = `Top ${fields.length} hits for **${options.qs.q}**`;
 
-			return message.channel.send(newEmbed(message, title, fields));
+			return message.channel.send(embed(message, title, undefined, fields));
 		});
 	},
 };

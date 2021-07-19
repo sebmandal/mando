@@ -1,5 +1,5 @@
 import request from "request";
-import newEmbed from "../../core/customEmbed";
+import { embed, error } from "../../core/embed";
 import { Command } from "../../core/customTypes";
 
 const FoodCommand: Command = {
@@ -22,14 +22,9 @@ const FoodCommand: Command = {
 
 		if (args.length <= 0) {
 			let title = "Provide a search term.";
-			let fields = [
-				{
-					name: ":x: Provide a search term.",
-					value: "Please provide a search term.",
-				},
-			];
+			let description = ":x: Provide a search term.";
 
-			return await message.channel.send(newEmbed(message, title, fields));
+			return await message.channel.send(error(message, title, description));
 		}
 
 		return request(options, (err: any, res: any, body: any) => {
@@ -51,7 +46,7 @@ const FoodCommand: Command = {
 				},
 			];
 
-			return message.channel.send(newEmbed(message, title, fields));
+			return message.channel.send(embed(message, title, undefined, fields));
 		});
 	},
 };

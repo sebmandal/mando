@@ -1,4 +1,4 @@
-import newEmbed from "../../core/customEmbed";
+import { embed } from "../../core/embed";
 import { Command } from "../../core/customTypes";
 import commands from "../../core/commandRegistry";
 
@@ -24,7 +24,7 @@ const HelpCommand: Command = {
 				},
 			];
 
-			await message.channel.send(newEmbed(message, title, fields));
+			await message.channel.send(embed(message, title, undefined, fields));
 		} else {
 			let title = `Mando's abilities`;
 			let fields = [
@@ -40,7 +40,7 @@ const HelpCommand: Command = {
 				},
 			];
 
-			await message.channel.send(newEmbed(message, title, fields));
+			await message.channel.send(embed(message, title, undefined, fields));
 		}
 	},
 };

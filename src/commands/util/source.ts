@@ -1,4 +1,4 @@
-import newEmbed from "../../core/customEmbed";
+import { embed } from "../../core/embed";
 import { Command } from "../../core/customTypes";
 import commands from "../../core/commandRegistry";
 
@@ -8,17 +8,10 @@ const SourceCommand: Command = {
 	usage: "source",
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		return await message.channel.send(
-			newEmbed(
+			embed(
 				message,
 				"Source",
-				[
-					{
-						name: "Mando's Source",
-						value:
-							"[ooOoO fancy hyperlink](https://github.com/sebmandal/mando)",
-						inline: false,
-					},
-				],
+				"[Link](https://github.com/sebmandal/mando)",
 				undefined,
 				"https://github.com/sebmandal/mando"
 			)
