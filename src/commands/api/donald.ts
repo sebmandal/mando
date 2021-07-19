@@ -2,7 +2,7 @@ import request from "request";
 import { embed, error } from "../../core/embed";
 import { Command } from "../../core/customTypes";
 
-const CovidCommand: Command = {
+const DonaldCommand: Command = {
 	name: "donald",
 	description: "Retrieve info about the COVID-19 pandemic.",
 	usage: "donald",
@@ -25,7 +25,7 @@ const CovidCommand: Command = {
 			let data = JSON.parse(body);
 
 			let title = "Your randomly generated Trump quote";
-			
+
 			let fields = [
 				{
 					name: "Donald Trump, " + data.appeared_at.substring(0, 4),
@@ -40,4 +40,4 @@ const CovidCommand: Command = {
 	},
 };
 
-export default CovidCommand;
+export default DonaldCommand;
