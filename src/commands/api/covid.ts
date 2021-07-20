@@ -6,7 +6,7 @@ const CovidCommand: Command = {
 	name: "covid",
 	description: "Retrieve info about the COVID-19 pandemic.",
 	usage: "covid canada",
-	alias: ['covid-19'],
+	alias: ["covid-19"],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const options = {
 			method: "GET",

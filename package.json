@@ -9,18 +9,12 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@discordjs/opus": "^0.5.3",
 		"@types/request": "^2.48.6",
-		"@types/yt-search": "^2.3.1",
 		"discord.js": "^12.5.3",
-		"discord.js-musicbot-addon": "^13.9.1",
 		"dotenv": "^10.0.0",
-		"ffmpeg-static": "^4.4.0",
 		"request": "^2.88.2",
 		"ts": "^0.2.2",
-		"ws": "^7.5.3",
-		"yt-search": "^2.9.0",
-		"ytdl-core": "^4.8.3"
+		"ws": "^7.5.3"
 	},
 	"devDependencies": {
 		"@types/dotenv": "^8.2.0",

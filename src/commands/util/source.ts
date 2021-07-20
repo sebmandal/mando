@@ -6,7 +6,7 @@ const SourceCommand: Command = {
 	name: "source",
 	description: "Sends back the source code link",
 	usage: "source",
-	alias: [],
+	alias: ["s"],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		return await message.channel.send(
 			embed({
