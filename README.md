@@ -28,3 +28,7 @@ npm start
 ### Developers
 
 - [sebmandal](https://github.com/sebmandal)
+
+### Valued Contributors
+
+- @LucasJoel1 — Voice and streaming functionality.
