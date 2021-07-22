@@ -1,6 +1,6 @@
-# <center>Mando<center>
+# <div style="text-align: center;">Mando<center</div>
 
-<center><a href="https://github.com/sebmandal/mando" target="_blank"><img height="180" alt="mando" src="https://cdn.discordapp.com/attachments/845438745939673088/867607801843679252/unknown.png"></a></center>
+<div style="text-align: center;"><a href="https://github.com/sebmandal/mando" target="_blank"><img height="180" alt="mando" src="https://cdn.discordapp.com/attachments/845438745939673088/867607801843679252/unknown.png"></a></div>
 
 ## **Commands**
 
