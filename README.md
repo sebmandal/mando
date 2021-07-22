@@ -13,21 +13,21 @@ Feel free to contribute, and by any means reach out to me using my social links 
 
 #### Moderation commands
 
-- The **kick** command kick a specified user from the guild.
+- The `kick` command kick a specified user from the guild.
 
 #### API fetching commands
 
-- The **covid** command returns information about the pandemic in a specified country.
-- The **shorten** command returns a shortened URL.
-- The **genius** command returns 5 search results from the Genius API.
-- The **food** command returns information about a specific food.
-- The **donald** command returns a random Trump quote.
+- The `covid` command returns information about the pandemic in a specified country.
+- The `shorten` command returns a shortened URL.
+- The `genius` command returns 5 search results from the Genius API.
+- The `food` command returns information about a specific food.
+- The `donald` command returns a random Trump quote.
 
 #### Utility commands
 
-- The **avatar** command returns a user's avatar.
-- The **source** command returns the Mando GitHub link.
-- The **help** command returns a list of commands, or if a command is specified, information about said command.
+- The `avatar` command returns a user's avatar.
+- The `source` command returns the Mando GitHub link.
+- The `help` command returns a list of commands, or if a command is specified, information about said command.
 
 ## <div align="center">**Local installation for developers**</div>
 
