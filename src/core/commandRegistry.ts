@@ -6,6 +6,7 @@ import genius from "../commands/api/genius";
 import food from "../commands/api/food";
 import donald from "../commands/api/donald";
 
+import avatar from "../commands/util/avatar";
 import source from "../commands/util/source";
 import help from "../commands/util/help";
 
@@ -15,7 +16,7 @@ export default [
 		commands: [kick],
 	},
 	{ name: "API Commands", commands: [covid, shorten, genius, food, donald] },
-	{ name: "Utility Commands", commands: [source, help] },
+	{ name: "Utility Commands", commands: [avatar, source, help] },
 ];
 
 export const allCommands = [
@@ -25,6 +26,7 @@ export const allCommands = [
 	genius,
 	food,
 	donald,
+	avatar,
 	source,
 	help,
 ];

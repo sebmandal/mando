@@ -26,7 +26,7 @@ const HelpCommand: Command = {
 				},
 				{
 					name: `Example usage`,
-					value: `${process.env.prefix}${command.usage}`,
+					value: '`' + `${process.env.prefix}${command.usage}` + '`',
 					inline: false,
 				},
 				{

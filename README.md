@@ -1,13 +1,28 @@
-# Mando
+# <center>Mando<center>
 
-Mando is an open-sourced Discord bot written in TS
+<center><a href="https://github.com/sebmandal/mando" target="_blank"><img height="180" alt="mando" src="https://cdn.discordapp.com/attachments/845438745939673088/867607801843679252/unknown.png"></a></center>
 
-## Commands
+## **Commands**
 
-- covid
-  - Example usage: !covid norway
+#### Moderation commands
 
-### To run it locally
+- The **kick** command kick a specified user from the guild.
+
+#### API fetching commands
+
+- The **covid** command returns information about the pandemic in a specified country.
+- The **shorten** command returns a shortened URL.
+- The **genius** command returns 5 search results from the Genius API.
+- The **food** command returns information about a specific food.
+- The **donald** command returns a random Trump quote.
+
+#### Utility commands
+
+- The **avatar** command returns a user's avatar.
+- The **source** command returns the Mando GitHub link.
+- The **help** command returns a list of commands, or if a command is specified, information about said command.
+
+## **For developers**
 
 ```
 github clone https://github.com/sebmandal/mando.git
@@ -18,13 +33,8 @@ npm start
 
 #### Add a .env with the following information
 
-###### Grab your COVID19 API key and host from https://rapidapi.com/api-sports/api/covid-193/
+###### Grab your RAPID API key from https://rapidapi.com/
 
-- Bot prefix (variable name: prefix)
-- Discord OAuth2 app token (variable name: token)
-- COVID19_API_KEY
-- COVID19_API_HOST
-
-### Developers
-
-- [sebmandal](https://github.com/sebmandal)
+- prefix (your bot's prefix)
+- token (Discord OAuth2 app token)
+- RAPIDAPI_KEY
