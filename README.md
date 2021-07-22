@@ -34,7 +34,6 @@ npm start
 #### Add a .env with the following information
 
 ###### Grab your RAPID API key from https://rapidapi.com/
-
-- prefix (your bot's prefix)
-- token (Discord OAuth2 app token)
+- prefix (your bot prefix)
+- token (your Discord OAuth2 app token)
 - RAPIDAPI_KEY
