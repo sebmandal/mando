@@ -26,7 +26,7 @@ const HelpCommand: Command = {
 				},
 				{
 					name: `Example usage`,
-					value: '`' + `${process.env.prefix}${command.usage}` + '`',
+					value: "`" + `${process.env.prefix}${command.usage}` + "`",
 					inline: false,
 				},
 				{
@@ -52,24 +52,24 @@ const HelpCommand: Command = {
 			let title = `Mando's abilities`;
 			let description = `To see a detailed help for a specific command, send ${process.env.prefix}help (command)`;
 
-			let fields = [];
+			let fields = [
+				{
+					name: "Mando's source code",
+					value: "https://github.com/sebmandal/Mando",
+					inline: false,
+				},
+			];
 
 			// looping through the categories, creating a field for each one with the containing commands and pushing all of it into the fields variable
-			categories.forEach((category: any) => {
-				fields.push({
+			// as this is always adding the category as the first field, I'm reversing the category array so the order is correct
+			categories.reverse().forEach((category: any) => {
+				fields.unshift({
 					name: category.name,
 					value: category.commands
 						.map((command: Command) => command.name)
 						.join(",\n"),
 					inline: false,
 				});
-			});
-
-			// pushing the source code field into the fields, I want this one last, so it's pushed instead of being in the fields variable from the beginning
-			fields.push({
-				name: "Mando's source code",
-				value: "https://github.com/sebmandal/Mando",
-				inline: false,
 			});
 
 			// sending the vanilla help message
