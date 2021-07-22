@@ -28,7 +28,7 @@
 - The **source** command returns the Mando GitHub link.
 - The **help** command returns a list of commands, or if a command is specified, information about said command.
 
-## **For developers**
+## **Local installation for developers**
 
 ```
 github clone https://github.com/sebmandal/mando.git
