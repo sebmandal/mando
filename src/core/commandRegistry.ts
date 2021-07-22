@@ -12,7 +12,7 @@ import help from "../commands/util/help";
 
 export default [
 	{
-		name: "Moderation Commands (administrator perms required)",
+		name: "Moderation Commands",
 		commands: [kick],
 	},
 	{ name: "API Commands", commands: [covid, shorten, genius, food, donald] },
