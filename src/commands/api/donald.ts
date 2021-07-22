@@ -1,5 +1,5 @@
 import request from "request";
-import { embed, error } from "../../core/embed";
+import { embed, error } from "../../core/utils";
 import { Command } from "../../core/customTypes";
 
 const DonaldCommand: Command = {

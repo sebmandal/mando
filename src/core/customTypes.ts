@@ -25,7 +25,7 @@ export interface Embed {
 
 export interface ErrorEmbed {
 	message: any;
-	title: string;
+	title?: string;
 	description: string;
 	footer?: string | object;
 }

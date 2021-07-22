@@ -1,4 +1,4 @@
-import { embed } from "../../core/embed";
+import { embed } from "../../core/utils";
 import { Command } from "../../core/customTypes";
 import commands from "../../core/commandRegistry";
 

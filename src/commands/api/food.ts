@@ -1,5 +1,5 @@
 import request from "request";
-import { embed, error } from "../../core/embed";
+import { embed, error } from "../../core/utils";
 import { Command } from "../../core/customTypes";
 
 const FoodCommand: Command = {
@@ -22,10 +22,9 @@ const FoodCommand: Command = {
 		options.url = options.url + args.join(" ");
 
 		if (args.length <= 0) {
-			let title = "Provide a search term.";
-			let description = ":x: Provide a search term.";
-
-			return await message.channel.send(error({ message, title, description }));
+			return await message.channel.send(
+				error({ message: message, description: "Provide a search term." })
+			);
 		}
 
 		return request(options, (err: any, res: any, body: any) => {
