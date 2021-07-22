@@ -7,21 +7,29 @@ const KickCommand: Command = {
 	usage: `kick @user#1337 or ${process.env.prefix}kick (a user's id)`,
 	alias: [],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
+		// checking if a user is specified,
+		// the author is able to kick them themselves,
+		// and checking if the bot is able to kick the specified user.
 		if (!message.member.hasPermission("KICK_MEMBERS"))
 			return message.reply("You cannot kick members");
+
 		let member =
 			message.mentions.members.first() ||
 			message.guild.members.cache.get(args[0]);
+
 		if (!member)
 			return message.reply("Please specify a member for me to kick them");
+
 		let reason = args.join(" ");
 		if (!reason) reason = "No reason given.";
-        if (!member.kickable) return message.channel.send(error(
-            {
-                message: message,
-                description: "This member is not kickable."
-            }
-        ));
+
+		if (!member.kickable)
+			return message.channel.send(
+				error({
+					message: message,
+					description: "This member is not kickable.",
+				})
+			);
 
 		member.kick(reason).catch((err: any) => {
 			return message.channel.send(

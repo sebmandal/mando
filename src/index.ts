@@ -19,7 +19,7 @@ import commandHandler from "./core/commandHandler";
 import dotenv from "dotenv";
 dotenv.config();
 
-const prefix = process.env.prefix || "!";
+const prefix = process.env.prefix;
 
 client.on("ready", () => {
 	client.user!.setActivity(
