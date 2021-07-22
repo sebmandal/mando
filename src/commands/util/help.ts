@@ -1,4 +1,4 @@
-import { embed } from "../../core/embed";
+import { embed } from "../../core/utils";
 import { Command } from "../../core/customTypes";
 import commands, { allCommands } from "../../core/commandRegistry";
 
@@ -26,7 +26,7 @@ const HelpCommand: Command = {
 				},
 				{
 					name: `Example usage`,
-					value: `${process.env.prefix}${command.usage}`,
+					value: '`' + `${process.env.prefix}${command.usage}` + '`',
 					inline: false,
 				},
 				{

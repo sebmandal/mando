@@ -1,12 +1,12 @@
 import request from "request";
-import { embed, error } from "../../core/embed";
+import { embed, error } from "../../core/utils";
 import { Command } from "../../core/customTypes";
 
 const CovidCommand: Command = {
 	name: "covid",
 	description: "Retrieve info about the COVID-19 pandemic.",
 	usage: "covid canada",
-	alias: ['covid-19'],
+	alias: ["covid-19"],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		const options = {
 			method: "GET",
@@ -27,9 +27,12 @@ const CovidCommand: Command = {
 				"https://i.ibb.co/93nq5jr/undraw-Analytics-re-dkf8.png";
 
 			if (!data) {
-				let title = "That's not a valid country.";
-				let description = ":x: Invalid country provided";
-				return message.channel.send(error({ message, title, description }));
+				return message.channel.send(
+					error({
+						message: message,
+						description: "Invalid country provided",
+					})
+				);
 			} else {
 				let title = `COVID 19 info for ${args[0]}`;
 				let fields = [

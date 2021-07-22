@@ -1,31 +1,32 @@
+import kick from "../commands/admin/kick";
+
 import covid from "../commands/api/covid";
 import shorten from "../commands/api/shorten";
 import genius from "../commands/api/genius";
 import food from "../commands/api/food";
 import donald from "../commands/api/donald";
 
-import stop from "../commands/voice/stop";
-import play from "../commands/voice/play";
-
+import avatar from "../commands/util/avatar";
 import source from "../commands/util/source";
 import help from "../commands/util/help";
 
 export default [
+	{
+		name: "Moderation Commands (administrator perms required)",
+		commands: [kick],
+	},
 	{ name: "API Commands", commands: [covid, shorten, genius, food, donald] },
-	{ name: "Voice Commands", commands: [stop, play] },
-	{ name: "Utility Commands", commands: [source, help] },
+	{ name: "Utility Commands", commands: [avatar, source, help] },
 ];
 
 export const allCommands = [
+	kick,
 	covid,
 	shorten,
 	genius,
 	food,
 	donald,
-
-	stop,
-	play,
-
+	avatar,
 	source,
 	help,
 ];

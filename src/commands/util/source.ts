@@ -1,4 +1,4 @@
-import { embed } from "../../core/embed";
+import { embed } from "../../core/utils";
 import { Command } from "../../core/customTypes";
 import commands from "../../core/commandRegistry";
 
@@ -6,7 +6,7 @@ const SourceCommand: Command = {
 	name: "source",
 	description: "Sends back the source code link",
 	usage: "source",
-	alias: [],
+	alias: ["s"],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		return await message.channel.send(
 			embed({

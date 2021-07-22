@@ -26,7 +26,7 @@ export const error = (data: ErrorEmbed) => {
 			data.message.author.tag,
 			`https://cdn.discordapp.com/avatars/${data.message.author.id}/${data.message.author.avatar}.webp?size=512`
 		)
-		.setTitle(data.title)
+		.setTitle(data.title || "An error occured. ")
 		.setDescription(data.description)
 		.setColor("#E97451")
 		.setFooter("Powered by Mando under MNDL® Ltd.");

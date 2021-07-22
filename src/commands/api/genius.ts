@@ -1,5 +1,5 @@
 import request from "request";
-import { embed, error } from "../../core/embed";
+import { embed, error } from "../../core/utils";
 import { Command } from "../../core/customTypes";
 
 const GeniusCommand: Command = {
@@ -20,10 +20,9 @@ const GeniusCommand: Command = {
 		};
 
 		if (args.length <= 0) {
-			let title = "Provide a search term.";
-			let description = ":x: Provide a search term.";
-
-			return await message.channel.send(error({ message, title, description }));
+			return await message.channel.send(
+				error({ message: message, description: "Provide a search term." })
+			);
 		}
 
 		options.qs.q = args.join(" ");

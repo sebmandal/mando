@@ -16,8 +16,8 @@ export default async (client: Discord.Client, message: Discord.Message) => {
 
 	// If the command exists, it'll run the run() script inside of the command
 	if (command) {
-		args.shift(); // get rid of the command, just leaves the args themselves
-		return command.run(client, message, args);
+		args.shift(); // get rid of the command itself, just leaves the args themselves
+		return await command.run(client, message, args);
 	}
 
 	// if the command doesn't exists, it'll reply with an error message

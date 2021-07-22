@@ -1,5 +1,5 @@
 import request from "request";
-import { embed, error } from "../../core/embed";
+import { embed, error } from "../../core/utils";
 import { Command } from "../../core/customTypes";
 
 const ShortenCommand: Command = {
@@ -29,10 +29,9 @@ const ShortenCommand: Command = {
 			let thumbnailUrl = "https://i.ibb.co/Dpwjvy9/short.png";
 
 			if (!data.result_url) {
-				let title = "That's not a valid URL.";
-				let description = ":x: Invalid URL provided";
-
-				return message.channel.send(error({ message, title, description }));
+				return message.channel.send(
+					error({ message: message, description: "Invalid URL provided." })
+				);
 			} else {
 				let title = `Mando's URL shortener`;
 				let fields = [
