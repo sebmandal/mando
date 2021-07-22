@@ -34,6 +34,7 @@ const ShortenCommand: Command = {
 				);
 			} else {
 				let title = `Mando's URL shortener`;
+
 				let fields = [
 					{
 						name: "Your shortened link",
@@ -42,6 +43,7 @@ const ShortenCommand: Command = {
 					},
 					{ name: "Original link", value: args[0], inline: false },
 				];
+
 				return message.channel.send(
 					embed({
 						message: message,
