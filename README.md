@@ -1,14 +1,15 @@
 <div align="center">
-  <h1>
-    <a href="https://github.com/sebmandal/mando" target="_blank">
-      <img height="180" alt="mando" src="https://cdn.discordapp.com/attachments/845438745939673088/867607801843679252/unknown.png">
-    </a>
-    <br />
-    Mando
-  </h1>
+  <a href="https://github.com/sebmandal/mando" target="_blank">
+    <img height="180" alt="mando" src="https://cdn.discordapp.com/attachments/845438745939673088/867607801843679252/unknown.png">
+  </a>
 </div>
 
-## **Commands**
+## <div align="center">**Mando**</div>
+
+**Mando** is an open source, utility Discord bot for fun, administration and utility purposes. 
+Feel free to contribute, and by any means reach out to me using my social links and I'll be as fast as I can to respond to any and all inquiries :)
+
+## <div align="center">**Commands**</div>
 
 #### Moderation commands
 
@@ -28,7 +29,7 @@
 - The **source** command returns the Mando GitHub link.
 - The **help** command returns a list of commands, or if a command is specified, information about said command.
 
-## **Local installation for developers**
+## <div align="center">**Local installation for developers**</div>
 
 ```
 github clone https://github.com/sebmandal/mando.git
@@ -37,9 +38,31 @@ npm i
 npm start
 ```
 
-#### Add a .env with the following information
-
-###### Grab your RAPID API key from https://rapidapi.com/
-- prefix (your bot prefix)
-- token (your Discord OAuth2 app token)
-- RAPIDAPI_KEY
+<div align="center">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">Add a .env file with the following information.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Variable name (case sensitive)</td>
+        <td>Function</td>
+      </tr>
+      <tr>
+        <td>prefix</td>
+        <td>Your bot's prefix</td>
+      </tr>
+      <tr>
+        <td>token</td>
+        <td>Your bot's OAuth2 app token</td>
+      </tr>
+      <tr>
+        <td>RAPIDAPI_KEY</td>
+        <td>Your RAPIDAPI key</td>
+      </tr>
+    </tbody>
+  </table>
+  <h6>Grab your RAPID API key from https://rapidapi.com/</h6>
+</div>
