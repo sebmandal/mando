@@ -11,6 +11,8 @@ Feel free to contribute, and by any means reach out to me using my social links 
 
 Mando was made with developers in mind. Implementing a new command is strict, yet easy once you start doing it. Simply, make a file which exports the name, description, example usage, aliases and a run function. Then add the file path to said command into the command registry file, and everything should work flawlessly.
 
+Keep up with the latest commits and features on the [working-branch](https://github.com/sebmandal/mando/tree/working-branch)
+
 ## <div align="center">**Commands**</div>
 
 #### Moderation commands
