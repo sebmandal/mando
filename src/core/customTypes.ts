@@ -1,5 +1,7 @@
 import Discord from "discord.js";
 
+// Command Types
+
 export interface Command {
 	name: string;
 	alias: string[];
@@ -11,6 +13,8 @@ export interface Command {
 		args: string[]
 	) => any;
 }
+
+// Embed Types
 
 export interface Embed {
 	message: any;

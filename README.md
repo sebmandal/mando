@@ -6,7 +6,7 @@
 
 ## <div align="center">**Mando**</div>
 
-**Mando** is an open source, utility Discord bot for fun, administration and utility purposes. 
+**Mando** is an open source, utility Discord bot for fun, administration and utility purposes.
 Feel free to contribute, and by any means reach out to me using my social links and I'll be as fast as I can to respond to any and all inquiries :)
 
 Mando was made with developers in mind. Implementing a new command is strict, yet easy once you start doing it. Simply, make a file which exports the name, description, example usage, aliases and a run function. Then add the file path to said command into the command registry file, and everything should work flawlessly.
@@ -53,11 +53,11 @@ npm start
         <td>Function</td>
       </tr>
       <tr>
-        <td>prefix</td>
+        <td>PREFIX</td>
         <td>Your bot's prefix</td>
       </tr>
       <tr>
-        <td>token</td>
+        <td>TOKEN</td>
         <td>Your bot's OAuth2 app token</td>
       </tr>
       <tr>

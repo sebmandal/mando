@@ -19,7 +19,7 @@ import commandHandler from "./core/commandHandler";
 import dotenv from "dotenv";
 dotenv.config();
 
-const prefix = process.env.prefix;
+const prefix: string = process.env.PREFIX!;
 
 client.on("ready", () => {
 	client.user!.setActivity(
@@ -33,7 +33,8 @@ client.on("ready", () => {
 
 client.on("message", async (message: Discord.Message) => {
 	if (!message.content.startsWith(prefix)) return;
+	message.content.substring(prefix.length);
 	return await commandHandler(client, message);
 });
 
-client.login(process.env.token);
+client.login(process.env.TOKEN);
