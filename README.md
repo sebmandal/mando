@@ -13,6 +13,9 @@ Mando was made with developers in mind. Implementing a new command is strict, ye
 
 Keep up with the latest commits and features on the [working-branch](https://github.com/sebmandal/mando/tree/working-branch)
 
+## Live Todo List
+- [ ] Make Command interface into a class
+
 ## <div align="center">**Commands**</div>
 
 #### Moderation commands
