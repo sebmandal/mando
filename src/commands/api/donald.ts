@@ -4,7 +4,7 @@ import { Command } from "../../core/customTypes";
 
 const DonaldCommand: Command = {
 	name: "donald",
-	description: "Retrieve info about the COVID-19 pandemic.",
+	description: "Retrieve a random Trump quote.",
 	usage: "donald",
 	alias: ["don", "trump"],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {

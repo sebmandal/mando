@@ -1,43 +1,43 @@
 import { embed, error } from "../../core/utils";
 import { Command } from "../../core/customTypes";
 
-const KickCommand: Command = {
-	name: "kick",
-	description: "Kick people from the guild.",
-	usage: `kick @user#1337 (or user's id)`,
+const BanCommand: Command = {
+	name: "ban",
+	description: "Ban people from the guild.",
+	usage: `ban @user#1337 (or user's id)`,
 	alias: [],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
 		// checking if a user is specified,
-		// the author is able to kick them themselves,
-		// and checking if the bot is able to kick the specified user.
-		if (!message.member.hasPermission("KICK_MEMBERS"))
-			return message.reply("You cannot kick members");
+		// the author is able to ban them themselves,
+		// and checking if the bot is able to ban the specified user.
+		if (!message.member.hasPermission("BAN_MEMBERS"))
+			return message.reply("You cannot ban members");
 
 		let member =
 			message.mentions.members.first() ||
 			message.guild.members.cache.get(args[0]);
 
 		if (!member)
-			return message.reply("Please specify a member for me to kick them");
+			return message.reply("Please specify a member for me to ban them");
 
 		let reason = args.join(" ");
 		if (!reason) reason = "No reason given.";
 
-		if (!member.kickable)
+		if (!member.bannable)
 			return message.channel.send(
 				error({
 					message: message,
-					description: "This member is not kickable.",
+					description: "This member is not bannable.",
 				})
 			);
 
 		member
-			.kick(reason)
+			.ban(reason)
 			.then(() => {
 				message.channel.send(
 					embed({
 						message: message,
-						title: `${member.tag} was kicked.`,
+						title: `${member.tag} was banned.`,
 					})
 				);
 			})
@@ -52,4 +52,4 @@ const KickCommand: Command = {
 	},
 };
 
-export default KickCommand;
+export default BanCommand;
