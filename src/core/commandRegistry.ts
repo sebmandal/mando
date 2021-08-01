@@ -1,4 +1,5 @@
 import kick from "../commands/admin/kick";
+import ban from "../commands/admin/ban";
 
 import covid from "../commands/api/covid";
 import shorten from "../commands/api/shorten";
@@ -13,7 +14,7 @@ import help from "../commands/util/help";
 export default [
 	{
 		name: "Moderation Commands",
-		commands: [kick],
+		commands: [kick, ban],
 	},
 	{ name: "API Commands", commands: [covid, shorten, genius, food, donald] },
 	{ name: "Utility Commands", commands: [avatar, source, help] },
@@ -21,6 +22,7 @@ export default [
 
 export const allCommands = [
 	kick,
+	ban,
 	covid,
 	shorten,
 	genius,
