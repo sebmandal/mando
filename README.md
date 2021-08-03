@@ -1,10 +1,8 @@
 <div align="center">
   <a href="https://github.com/sebmandal/mando" target="_blank">
-    <img height="180" alt="mando" src="https://cdn.discordapp.com/attachments/845438745939673088/867607801843679252/unknown.png">
+    <img height="180" alt="mando" src="https://cdn.discordapp.com/attachments/869843923428847666/872055806462394388/mando_transparent.svg">
   </a>
 </div>
-
-## <div align="center">**Mando**</div>
 
 **Mando** is an open source, utility Discord bot for fun, administration and utility purposes.
 Feel free to contribute, and by any means reach out to me using my social links and I'll be as fast as I can to respond to any and all inquiries :)
