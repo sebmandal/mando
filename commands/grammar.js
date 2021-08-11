@@ -32,21 +32,26 @@ const fixGrammar = async (client, interaction, args) => {
 					description: `Input: ${input}`,
 					color: 0xff0000,
 					fields: [
-						data.matches.map((match) => {
-							return {
-								// name: "Suggestion " + (data.matches.indexOf(match) + 1),
-								name: `${input.substring(
-									match.context.offset,
-									match.context.length + match.context.offset
-								)} (appears at ${
-									match.context.offset +
-									":" +
-									(match.context.offset + match.context.length)
-								})`,
-								value: match.message,
-								inline: true,
-							};
-						}),
+						data.matches.length > 0
+							? data.matches.map((match) => {
+									const offset = match.context.offset;
+									const length = match.context.length;
+									return {
+										// name: "Suggestion " + (data.matches.indexOf(match) + 1),
+										name: `${input.substring(
+											offset,
+											length + offset
+										)} (appears at ${offset + ":" + (offset + length)})`,
+										value: match.message,
+										inline: true,
+									};
+							  })
+							: {
+									name: "Congratulations!",
+									value:
+										"Mando could not detect any wrongful grammar in your input!",
+									inline: false,
+							  },
 					],
 				}),
 			],
