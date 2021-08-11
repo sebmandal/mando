@@ -1,27 +1,50 @@
 const { MessageEmbed } = require("discord.js");
 
-const lmao = () => {
-	let embed = new MessageEmbed()
-		.setColor(0xff0000)
-		.setTitle("Pong!")
-		.setDescription("Pong!");
-	return embed;
+const cmds = {
+    embed: async (client, interaction, arguments) => {
+        return {
+            embeds: [
+                new MessageEmbed({
+                    color: 0xff0000,
+                    title: "Pong!",
+                    description: "Pingity Pongity!",
+                })
+            ]
+        };
+    },
+    echo: async (client, interaction, arguments) => {
+        console.log(arguments._hoistedOptions[0].value);
+        return arguments._hoistedOptions[0].value;
+    },
 };
 
 module.exports = {
-	info: {
-		data: {
-			name: "ping",
-			description: "sends pong!",
+	name: "test",
+    description: "Test commands",
+    type: 2,
+	options: [
+        {
+            name: "embed",
+            type: 1,
+            description: "Let's play some ping pong!"
+        },
+		{
+            name: "echo",
+            type: 1,
+			description: "The bot replies with you query!",
+			options: [
+				{ name: "input", type: 3, description: "Your input", required: true },
+			],
 		},
-	},
-	callback: {
-		data: {
-			type: 4,
-			data: {
-				// content: "Pong!",
-				embeds: [lmao()],
-			},
-		},
+	],
+
+    run: async (client, interaction, arguments) => {
+        await interaction.deferReply({ ephemeral: false }); // Mando is thinking...
+
+        const subCommand = arguments.getSubcommand();
+
+        return await interaction
+            .followUp(await cmds[subCommand](client, interaction, arguments))
+            .catch((error) => interaction.followUp(`Sorry! An error occured with the following message:\n\`${error.message}\``));
 	},
 };

@@ -24,9 +24,14 @@ const client = new Discord.Client({
 	],
 });
 
-const setup = require("./setup");
 client.on("ready", async () => {
-	await setup(client);
+	const onReady = require("./onReady");
+	await onReady(client);
+});
+
+client.on("interactionCreate", async (i) => {
+	const onInteractionCreate = require("./onInteractionCreate");
+	await onInteractionCreate(client, i);
 });
 
 client.login(process.env.DISCORD_TOKEN);
