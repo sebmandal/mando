@@ -15,7 +15,9 @@ module.exports = (client, interaction) => {
 	commands.forEach(async (x) => {
 		if (command === x.name) {
 			// posting the callback to the client
-            return await x.run(client, interaction, arguments);
+            return await x
+                .run(client, interaction, arguments)
+                .catch((error) => interaction.followUp(`Sorry! An error occured with the following message:\n\`${error.message}\``));
 		}
 	});
 };
