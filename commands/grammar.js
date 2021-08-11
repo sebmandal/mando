@@ -23,18 +23,26 @@ const fixGrammar = async (client, interaction, args) => {
 		if (error) throw new Error(error);
 
 		const data = JSON.parse(body);
-		console.log(data);
+		const input = interaction.options._hoistedOptions[0].value;
 
 		return await interaction.followUp({
 			embeds: [
 				new MessageEmbed({
 					title: "Report on your grammar",
-					description: `Input: ${interaction.options._hoistedOptions[0].value}`,
+					description: `Input: ${input}`,
 					color: 0xff0000,
 					fields: [
 						data.matches.map((match) => {
 							return {
-								name: "Suggestion " + (data.matches.indexOf(match) + 1),
+								// name: "Suggestion " + (data.matches.indexOf(match) + 1),
+								name: `${input.substring(
+									match.context.offset,
+									match.context.length + match.context.offset
+								)} (appears at ${
+									match.context.offset +
+									":" +
+									(match.context.offset + match.context.length)
+								})`,
 								value: match.message,
 								inline: true,
 							};
