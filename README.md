@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/sebmandal/mando" target="_blank">
-    <img height="180" alt="mando" src="https://cdn.discordapp.com/attachments/869843923428847666/872055806462394388/mando_transparent.svg">
+    <img height="180" alt="mando" src="https://github.com/sebmandal/assets/blob/master/mando/mando%20transparent.svg">
   </a>
 </div>
 
