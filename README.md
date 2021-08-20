@@ -4,9 +4,7 @@
   </a>
 </div>
 
-### Due to TypeScript not complying with discord.js@13.1.0, I've decided to go back to JavaScript.
-
-### Mando will have support for slash commands soon. Further development (except for migration to JS) will be put on hold.
+### I was using an outdated version of TypeScript, and mistook it for discord.js not complying with TS, but now that I've found out the issue, I'm going back to TypeScript 🥂
 
 **Mando** is an open source, utility Discord bot for fun, administration and utility purposes.
 Feel free to contribute, and by any means reach out to me using my social links and I'll be as fast as I can to respond to any and all inquiries :)
