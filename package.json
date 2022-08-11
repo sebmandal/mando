@@ -1,22 +1,25 @@
 {
 	"name": "mando",
-	"version": "3.0.0",
+	"version": "2.0.0",
 	"description": "",
-	"main": "main/index.js",
+	"main": "dist/index.js",
 	"scripts": {
-		"start": "node .",
-		"nodemon": "nodemon ."
+		"start": "ts && node ."
 	},
-	"author": "sebmandal",
+	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"discord.js": "^13.1.0-dev.1628554147.0062aa6",
+		"@types/request": "^2.48.6",
+		"discord.js": "^13.0.1",
 		"dotenv": "^10.0.0",
 		"request": "^2.88.2",
-		"typescript": "^4.3.5"
+		"ts": "^0.2.2",
+		"typescript": "^4.3.5",
+		"ws": "^7.5.3"
 	},
 	"devDependencies": {
 		"@types/dotenv": "^8.2.0",
-		"nodemon": "^2.0.12"
+		"@types/node": "^16.3.3",
+		"@types/ws": "^7.4.6"
 	}
 }

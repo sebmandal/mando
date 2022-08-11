@@ -1,10 +1,10 @@
 <div align="center">
   <a href="https://github.com/sebmandal/mando" target="_blank">
-    <img height="180" alt="mando" src="https://cdn.discordapp.com/attachments/869843923428847666/872055806462394388/mando_transparent.svg">
+    <img height="180" alt="mando" src="https://cdn.discordapp.com/attachments/845438745939673088/867607801843679252/unknown.png">
   </a>
 </div>
 
-### I was using an outdated version of TypeScript, and mistook it for discord.js not complying with TS, but now that I've found out the issue, I'm going back to TypeScript 🥂
+## <div align="center">**Mando**</div>
 
 **Mando** is an open source, utility Discord bot for fun, administration and utility purposes.
 Feel free to contribute, and by any means reach out to me using my social links and I'll be as fast as I can to respond to any and all inquiries :)
@@ -12,6 +12,9 @@ Feel free to contribute, and by any means reach out to me using my social links 
 Mando was made with developers in mind. Implementing a new command is strict, yet easy once you start doing it. Simply, make a file which exports the name, description, example usage, aliases and a run function. Then add the file path to said command into the command registry file, and everything should work flawlessly.
 
 Keep up with the latest commits and features on the [working-branch](https://github.com/sebmandal/mando/tree/working-branch)
+
+## Live Todo List
+- [ ] Make Command interface into a class
 
 ## <div align="center">**Commands**</div>
 
