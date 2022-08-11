@@ -1,22 +1,24 @@
-import { embed } from "../../core/utils";
-import { Command } from "../../core/customTypes";
-import commands from "../../core/commandRegistry";
+import { embed } from '../../core/utils'
+import { Command } from '../../core/customTypes'
+import commands from '../../core/commandRegistry'
 
 const SourceCommand: Command = {
-	name: "source",
-	description: "Sends back the source code link",
-	usage: "source",
-	alias: ["s"],
+	name: 'source',
+	description: 'Sends back the source code link',
+	usage: 'source',
+	alias: ['s'],
 	run: async (client: any, message: any, args: string[]): Promise<any> => {
-		return await message.channel.send(
-			embed({
-				message: message,
-				title: "Source",
-				description: "[Link](https://github.com/sebmandal/mando)",
-				url: "https://github.com/sebmandal/mando",
-			})
-		);
+		return await message.channel.send({
+			embeds: [
+				embed({
+					message: message,
+					title: 'Source',
+					description: '[Link](https://github.com/sebmandal/mando)',
+					url: 'https://github.com/sebmandal/mando',
+				}),
+			],
+		})
 	},
-};
+}
 
-export default SourceCommand;
+export default SourceCommand

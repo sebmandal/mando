@@ -11,8 +11,10 @@
 //     |                                    |
 //     \------------------------------------/
 
-import Discord from "discord.js";
-const client: Discord.Client = new Discord.Client();
+import Discord, { Intents } from "discord.js";
+const client: Discord.Client = new Discord.Client({
+	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+});
 
 import commandHandler from "./core/commandHandler";
 
@@ -31,7 +33,7 @@ client.on("ready", () => {
 	return console.log("Mando is ready!");
 });
 
-client.on("message", async (message: Discord.Message) => {
+client.on("messageCreate", async (message: Discord.Message) => {
 	if (!message.content.startsWith(prefix)) return;
 	message.content.substring(prefix.length);
 	return await commandHandler(client, message);

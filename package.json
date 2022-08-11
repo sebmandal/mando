@@ -10,7 +10,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"@types/request": "^2.48.6",
-		"discord.js": "^12.5.3",
+		"discord.js": "^13.0.1",
 		"dotenv": "^10.0.0",
 		"request": "^2.88.2",
 		"ts": "^0.2.2",
